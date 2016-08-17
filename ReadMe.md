@@ -40,10 +40,11 @@ There are 2 possible actions for 4 different directions (8 conditional statement
 
 I know that in this case, it takes only 4 same rotations to get the robot back to facing the original direction. I'm presenting an extreme solution where turn index goes into a large digit. These large digits(extended key) can still represent any of the current 4 elements in the array(actual key). Assuming that multiple LEFTs or RIGHTs are keyed in at once,
 
+|Array Elements| "NORTH" | "EAST" | "SOUTH"| "WEST" |
+|---|---|---|---|---|
 |Unrecognized Extended Index| -12 | -11 | -10| -9 |
 |Unrecognized Extended Index| -8 | -7 | -6| -5 |
 |Recognized Actual Index| -4 | -3 | -2| -1 |
-|Array Elements| "NORTH" | "EAST" | "SOUTH"| "WEST" |
 |Recognized Actual Index| 0 | 1 | 2| 3 |
 |Unrecognized Extended Index| 4 | 5 | 6 | 7 |
 |Unrecognized Extended Index| 8 | 9 | 10 | 11 |
