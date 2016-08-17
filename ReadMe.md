@@ -42,13 +42,13 @@ I know that in this case, it takes only 4 same rotations to get the robot back t
 
 |Array Elements| "NORTH" | "EAST" | "SOUTH"| "WEST" |
 |---|---|---|---|---|
-|Unrecognized Extended Index| -12 | -11 | -10| -9 |
-|Unrecognized Extended Index| -8 | -7 | -6| -5 |
-|Recognized Actual Index| -4 | -3 | -2| -1 |
-|Recognized Actual Index| 0 | 1 | 2| 3 |
-|Unrecognized Extended Index| 4 | 5 | 6 | 7 |
-|Unrecognized Extended Index| 8 | 9 | 10 | 11 |
-|Recognized Actual Index| 12 | 13 | 14| 15 |
+|Unrecognized Extended Index(UEX)| -12 | -11 | -10| -9 |
+|Unrecognized Extended Index(UEX)| -8 | -7 | -6| -5 |
+|Recognized Actual Index(RAX)| -4 | -3 | -2| -1 |
+|Recognized Actual Index(RAX)| 0 | 1 | 2| 3 |
+|Unrecognized Extended Index(UEX)| 4 | 5 | 6 | 7 |
+|Unrecognized Extended Index(UEX)| 8 | 9 | 10 | 11 |
+|Unrecognized Extended Index(UEX)| 12 | 13 | 14| 15 |
 
 Referring to the Array above, we know that Directions[0] and Directions[-4] result in the "NORTH" value in the array. Similarly, "SOUTH" can be obtained from Directions[-2] and "WEST" from Directions[3]. In an extreme case when more than 4 RIGHTs (6 RIGHTS) appear in the command line the robot should be able to rotate past the recognized array index.
 
