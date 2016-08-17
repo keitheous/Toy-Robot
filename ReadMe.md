@@ -55,9 +55,13 @@ Referring to the Array above, we know that Directions[0] and Directions[-4] resu
 I have written down a formula to achieve this.
 
 IF index is bigger than the highest recognized actual index ( index > 3),
+
 do this
+
 ELSE IF index is smaller than the lowest recognized actual index ( index < -4),
+
 do this
+
 ELSE
 do nothing
 
