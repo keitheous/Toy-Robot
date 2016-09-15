@@ -3,7 +3,6 @@ require 'pry'
 class Direction
   COMPASS = ['north', 'east', 'south', 'west']
   attr_accessor :compass_index
-
   def initialize(direction)
     @compass_index = COMPASS.index(direction.downcase)
   end

@@ -5,7 +5,6 @@ require_relative 'rule'
 # Robot
 class Robot
   attr_accessor :orient
-
   def placement(x, y, direction)
     if Rule.new.check_initial_placement_inbound(x, y) == true
       @orient = [x, y, direction]
