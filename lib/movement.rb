@@ -1,22 +1,21 @@
 require 'pry'
 require_relative 'direction'
+require_relative 'board'
 # Movement
 class Movement
-  attr_accessor :location
+  attr_accessor :location, :max_xy
   def initialize(x, y, direction)
-    @location = [x, y, direction]
+    @align = [x, y, direction]
+    @max_xy = Board.new.set_dimensions # x, y array
   end
 
   def forward(steps = 1)
-    case @location[2] #direction
-    when 'north' then @location[1] += steps # y+
-    when 'south' then @location[1] -= steps # y-
-    when 'east' then @location[0] += steps # x+
-    when 'west' then @location[0] -= steps # x-
+    case @align[2] # direction
+    when 'north' then @align[1] += steps if @align[1] < @max_xy[1] # y+
+    when 'south' then @align[1] -= steps if @align[1] > 0 # y-
+    when 'east' then @align[0] += steps if @align[0] < @max_xy[0] # x+
+    when 'west' then @align[0] -= steps if @align[0] > 0 # x-
     end
-    @location
+    @align
   end
 end
-# a = Movement.new(1, 2, 'north')
-# binding.pry
-# to add direction dependencies later

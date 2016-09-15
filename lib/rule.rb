@@ -14,10 +14,7 @@ class Rule
       @game = false
     end
     @game
-    # binding.pry
   end
 end
 # Rule.new.check_initial_placement_inbound(5,3)
 # Check for first command to be placement.
-# check for placed within bound
-# check for movements within bound
