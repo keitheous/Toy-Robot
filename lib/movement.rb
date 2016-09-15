@@ -8,11 +8,11 @@ class Movement
   end
 
   def forward(steps = 1)
-    case @location[2]
-    when 'north' then @location[1] += steps # y++
-    when 'south' then @location[1] -= steps # y--
-    when 'east' then @location[0] += steps # x++
-    when 'west' then @location[0] -= steps # x--
+    case @location[2] #direction
+    when 'north' then @location[1] += steps # y+
+    when 'south' then @location[1] -= steps # y-
+    when 'east' then @location[0] += steps # x+
+    when 'west' then @location[0] -= steps # x-
     end
     @location
   end

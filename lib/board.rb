@@ -1,5 +1,4 @@
 require 'pry'
-
 # Board
 class Board
   attr_accessor :max_width, :max_height

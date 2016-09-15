@@ -16,6 +16,16 @@ class Robot
   def move
     @orient = Movement.new(@orient[0],@orient[1],@orient[2]).forward
   end
+
+  def turn_right
+    @orient[2] = Direction.new(@orient[2]).rotate_90_degrees_right
+    @orient
+  end
+
+  def turn_left
+    @orient[2] = Direction.new(@orient[2]).rotate_90_degrees_left
+    @orient
+  end
 end
 
 a = Robot.new
