@@ -14,25 +14,31 @@ In addition to that, I intend to break it down into several parts, forming an en
 located in the /lib folder,
 ### 1. Board
 **Description:** Setting the arena / playing field
+
 **Function:** set_dimensions
+
 **Possible Future Plans/ Scalability:** bigger playing field
 
 ### 2. Direction
 **Description:** Robot's universal compass
+
 **Functions:**
 * initialize - to obtain current direction
 * rotate_90_degrees_left - --compass_index of Compass Array
 * rotate_90_degrees_right - ++compass_index of Compass Array
 * Private function to recognize extended index (scroll down for explanation)
+
 **Possible Future Plans/ Scalability:**
 * turns other than 90 degrees,
 * North East/West & South East/West in Compass Array
 
 ### 3. Movement
 **Description:** Robot's mobility
+
 **Functions:**
 * initialize - to obtain current location & direction
 * forward - move forward based on direction face
+
 **Possible Future Plans/ Scalability:**
 * Move backwards, sideways
 * Move diagonally +i+j , -i-j, +i-j, -i+j
@@ -40,25 +46,31 @@ located in the /lib folder,
 
 ### 4. Report
 - **Description:** spits strings - current location & direction
+
 - **Function:** print_string
+
 - **Future Plans/ Scalability:** Report other status - distance from certain x,y
 
 ### 5. Rule
 - **Description:** Game's Rule - Robot's Moral Values
+
 - **Functions:**
   * check_robot_is_placed
   * check_initial_command - must be place command
+
 - **Possible Future Plans/ Scalability:**
   * Constrains/Specifications change its inevitable
   * 2 robots cannot not be on the same spot at once
 
 ### 6. Robot
 - **Description:** The essence of life
+
 - **Functions:**
   * move
   * turn_left
   * turn_right
   * report
+
 - **Possible Future Plans/ Scalability:**
   * Multiple robots - different names - initialize(name)
 
