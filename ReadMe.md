@@ -8,12 +8,68 @@ Scalability is the capability of a system, network, or process to handle a growi
 
 For example, although the challenge only require a 5 x 5 arena, the system should still work in the future when I am required to change it to a 10 x 10 arena. Similarly, the current required directions (face) are NORTH, EAST, SOUTH and WEST. And in the future, if required so, we can change the system to face 8 directions instead, (i.e. N, NE, E, SE, S, SW, W and NW).
 
-In addition to that, I intend to break it down into several parts, forming an entire whole system in the end with a main.rb. That way, when I'm required to make an amendment, I just need to change one component of it without affecting the rest. Components may include turn.rb, positions.rb, rules.rb, movement.rb, and etc.
+In addition to that, I intend to break it down into several parts, forming an entire whole system in the end with a bin/main.rb. That way, when I'm required to make amendments, I just need to change one component (i.e one of the classes in lib folder) without affecting the rest. Components may include report.rb, board.rb, rule.rb, movement.rb, and etc.
 
-## Part 1 : turn.rb
-So I've decided to start with the turn/directions module, simply because it's the easiest one in my opinion.
+## Approach
+located in the /lib folder,
+# 1. Board
+**Description:** Setting the arena / playing field
+**Function:** set_dimensions
+**Possible Future Plans/ Scalability:** bigger playing field
 
-The turn component plays an important role in the movements of the robot. Apart from moving forward, the only way the robot to get anywhere is by turning left or right. To be more specific, ROTATE 90 degrees left or 90 degrees right. In other words, the robot will need to ROTATE RIGHT and MOVE FORWARD just to slide towards the right across the board.
+# 2. Direction
+**Description:** Robot's universal compass
+**Functions:**
+* initialize - to obtain current direction
+* rotate_90_degrees_left - --compass_index of Compass Array
+* rotate_90_degrees_right - ++compass_index of Compass Array
+* Private function to recognize extended index (scroll down for explanation)
+**Possible Future Plans/ Scalability:**
+* turns other than 90 degrees,
+* North East/West & South East/West in Compass Array
+
+# 3. Movement
+**Description:** Robot's mobility
+**Functions:**
+* initialize - to obtain current location & direction
+* forward - move forward based on direction face
+**Possible Future Plans/ Scalability:**
+* Move backwards, sideways
+* Move diagonally +i+j , -i-j, +i-j, -i+j
+* Unit Step(s)
+
+# 4. Report
+**Description:** spits strings - current location & direction
+**Function:** print_string
+**Future Plans/ Scalability:** Report other status - distance from certain x,y
+
+# 5. Rule
+**Description:** Game's Rule - Robot's Moral Values
+**Functions:**
+* check_robot_is_placed
+* check_initial_command - must be place command
+**Possible Future Plans/ Scalability:**
+* Constrains/Specifications change its inevitable
+* 2 robots cannot not be on the same spot at once
+
+# 6. Robot
+**Description:** The essence of life
+**Functions:**
+* move
+* turn_left
+* turn_right
+* report
+**Possible Future Plans/ Scalability:**
+* Multiple robots - different names - initialize(name)
+
+# Private Function in Direction
+**Description:**
+
+
+
+
+
+
 
 ### Being Practical
 Instead of building a LARGE if else statement containing what to do when what instructions given. Ive decided that a link list would be appropriate. I will put all the directions in an array and create a code that links one end to the other, resulting in an endless loop forward and back.
@@ -65,4 +121,4 @@ do this
 ELSE
 do nothing
 
-TO BE CONTINUED ...
+TO BE CONTINUED ... -->
