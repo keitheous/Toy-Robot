@@ -26,7 +26,7 @@ located in the /lib folder,
 * initialize - to obtain current direction
 * rotate_90_degrees_left - --compass_index of Compass Array
 * rotate_90_degrees_right - ++compass_index of Compass Array
-* Private function to recognize extended index (scroll down for explanation)
+* Private function to recognize extended indices (scroll down for explanation)
 
 **Possible Future Plans/ Scalability:**
 * turns other than 90 degrees,
@@ -75,7 +75,7 @@ located in the /lib folder,
   * Multiple robots - different names - initialize(name)
 
 ### Private Function in Direction
-**Description:**
+
 On being practical, instead of building a LARGE if else statement containing what to do when what instructions given. Ive decided that a link list would be appropriate.
 The directions are declared in an array and a code that links one end to the other, resulting in an endless loop forward and back, was written.
 

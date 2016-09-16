@@ -14,6 +14,7 @@ class Robot
 
   def move
     @orient = Movement.new(@orient[0], @orient[1], @orient[2]).forward
+    binding.pry
   end
 
   def turn_right
@@ -30,5 +31,5 @@ class Robot
     Report.new.print_string(@orient)
   end
 end
-# a = Robot.new
-# binding.pry
+a = Robot.new
+binding.pry
