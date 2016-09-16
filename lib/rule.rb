@@ -16,5 +16,3 @@ class Rule
     @game
   end
 end
-
-# Check for first command to be placement.
