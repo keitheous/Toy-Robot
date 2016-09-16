@@ -74,13 +74,13 @@ When the robot is required to TURN right, all I need to do is increment an index
 Considering the code below,
 
 - check for current position (N,E,S,or WEST)
--  if command = RIGHT and current position == N,
--  rotate right and current position = E
--  if command = LEFT and current position == N,
--  rotate left and current position = W
--  ...
--  ..
--  .
+  * if command = RIGHT and current position == N,
+  * rotate right and current position = E
+  * if command = LEFT and current position == N,
+  * rotate left and current position = W
+  * ...
+  * ..
+  * .
 
 There are 2 possible actions for 4 different directions (8 conditional statements). What happens in the future when we're required to have 8 directions instead of 4. What will we do next? Create all 16 conditional statements? The code will no longer be practical or D.R.Y.
 
@@ -107,27 +107,29 @@ I have written down a formula to achieve this.
 IF index is bigger than the highest recognized actual index ( index > 3),
 
 - if index > directions.length - 1
--  answer = index / directions.length
--  extended_key = answer * directions.length
--  actual_key = index - extended_key
--  index = actual_key
+  * answer = index / directions.length
+  * extended_key = answer * directions.length
+  * actual_key = index - extended_key
+  * index = actual_key
 
 ELSE IF index is smaller than the lowest recognized actual index ( index < -4),
 
 - elsif index < -(directions.length)
--  answer = index.abs / directions.length
--  extended_key = answer * directions.length
--  actual_key = index + extended_key
--  index = actual_key
+  * answer = index.abs / directions.length
+  * extended_key = answer * directions.length
+  * actual_key = index + extended_key
+  * index = actual_key
 
 **REFACTORED!**
 
 - numbers_in_between = (index.abs / directions.length) * directions.length
+
 - if index > directions.length - 1
-- 	index -= numbers_in_between
+  * index -= numbers_in_between
 - elsif index < -(directions.length)
--	index += numbers_in_between
+  * index += numbers_in_between
 - end
+
 - directions[index]
 
 This will now work for both
