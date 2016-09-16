@@ -2,6 +2,7 @@ require_relative 'direction'
 require_relative 'movement'
 require_relative 'board'
 require_relative 'rule'
+require_relative 'report'
 # Robot
 class Robot
   attr_accessor :orient
@@ -23,6 +24,10 @@ class Robot
   def turn_left
     @orient[2] = Direction.new(@orient[2]).rotate_90_degrees_left
     @orient
+  end
+
+  def report_status
+    Report.new.print_string(@orient)
   end
 end
 # a = Robot.new

@@ -1,7 +1,7 @@
 require 'pry'
 # Direction
 class Direction
-  COMPASS = ['north', 'east', 'south', 'west']
+  COMPASS = %w(north east south west)
   attr_accessor :compass_index
   def initialize(direction)
     @compass_index = COMPASS.index(direction.downcase)
@@ -29,17 +29,3 @@ class Direction
     COMPASS[extended_index]
   end
 end
-# def report_current
-#   numbers_in_between = (@compass_index.abs / COMPASS.length) * COMPASS.length
-#
-#   if @compass_index > COMPASS.length - 1
-#     @compass_index -= numbers_in_between
-#   elsif @compass_index < -COMPASS.length
-#     @compass_index += numbers_in_between
-#   end
-#
-#   COMPASS[@compass_index]
-# end
-#
-# a = Direction.new('west')
-# binding.pry

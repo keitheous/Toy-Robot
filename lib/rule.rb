@@ -16,5 +16,5 @@ class Rule
     @game
   end
 end
-# Rule.new.check_initial_placement_inbound(5,3)
+
 # Check for first command to be placement.
