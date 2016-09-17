@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 require_relative 'direction'
 require_relative 'board'
 # lib/movement.rb

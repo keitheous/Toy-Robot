@@ -1,0 +1,5 @@
+require 'board'
+require 'direction'
+require 'movement'
+require 'robot'
+require 'rule'

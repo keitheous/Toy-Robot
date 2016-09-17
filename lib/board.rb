@@ -1,4 +1,3 @@
-require 'pry'
 # lib/board.rb
 class Board
   attr_accessor :max_width, :max_height
