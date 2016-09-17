@@ -1,7 +1,7 @@
 require 'pry'
 require_relative 'direction'
 require_relative 'board'
-# Movement
+# lib/movement.rb
 class Movement
   attr_accessor :location, :max_xy
   def initialize(x, y, direction)

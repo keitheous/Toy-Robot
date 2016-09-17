@@ -1,5 +1,5 @@
 require 'pry'
-# Board
+# lib/board.rb
 class Board
   attr_accessor :max_width, :max_height
   def set_dimensions(x = 5, y = 5)

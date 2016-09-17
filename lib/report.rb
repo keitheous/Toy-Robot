@@ -1,5 +1,5 @@
 require_relative 'robot'
-#Report
+# lib/report.rb
 class Report
   def print_string(orient_arr)
     puts 'Robot Report'

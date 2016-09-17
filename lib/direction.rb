@@ -1,5 +1,5 @@
 require 'pry'
-# Direction
+# lib/direction.rb
 class Direction
   COMPASS = %w(north east south west)
   attr_accessor :compass_index

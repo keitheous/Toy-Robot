@@ -3,7 +3,7 @@ require_relative 'movement'
 require_relative 'board'
 require_relative 'rule'
 require_relative 'report'
-# Robot
+# lib/robot.rb
 class Robot
   attr_accessor :orient
   def placement(x, y, direction)
@@ -14,7 +14,6 @@ class Robot
 
   def move
     @orient = Movement.new(@orient[0], @orient[1], @orient[2]).forward
-    binding.pry
   end
 
   def turn_right

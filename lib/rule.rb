@@ -1,6 +1,6 @@
 require 'pry'
 require_relative 'board'
-# Game Rules
+# lib/rule.rb
 class Rule
   attr_accessor :game
   def initialize
