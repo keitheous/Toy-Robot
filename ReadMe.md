@@ -44,14 +44,7 @@ located in the /lib folder,
 * Move diagonally +i+j , -i-j, +i-j, -i+j
 * Unit Step(s)
 
-### 4. Report
-- **Description:** spits strings - current location & direction
-
-- **Function:** print_string
-
-- **Future Plans/ Scalability:** Report other status - distance from certain x,y
-
-### 5. Rule
+### 4. Rule
 - **Description:** Game's Rule - Robot's Moral Values
 
 - **Functions:**
@@ -62,7 +55,7 @@ located in the /lib folder,
   * Constrains/Specifications change its inevitable
   * 2 robots cannot not be on the same spot at once
 
-### 6. Robot
+### 5. Robot
 - **Description:** The essence of life
 
 - **Functions:**
@@ -111,8 +104,6 @@ Turning right or left 4 times takes you into the unknown territory an array. For
 |Unrecognized Extended Index(UEX)| 4 | 5 | 6 | 7 |
 |Unrecognized Extended Index(UEX)| 8 | 9 | 10 | 11 |
 |Unrecognized Extended Index(UEX)| 12 | 13 | 14| 15 |
-
-Referring to the Array above, we know that Directions[0] and Directions[-4] result in the "NORTH" value in the array. Similarly, "SOUTH" can be obtained from Directions[-2] and "WEST" from Directions[3]. In an extreme cases when more than 4 RIGHTs (6 RIGHTS) appear in the command line the robot should be able to rotate past the recognized array index.
 
 I have written down a formula to achieve this.
 

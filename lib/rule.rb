@@ -23,6 +23,7 @@ class Rule
     end
     @game
   end
+
 end
 
 #inform user of barier

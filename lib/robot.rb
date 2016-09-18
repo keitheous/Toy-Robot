@@ -9,45 +9,35 @@ class Robot
   attr_accessor :orient
 
   def initialize
-    @orient = [0,0,nil,'!placed']
+    @orient = [0, 0, nil, '!placed']
   end
 
   def place(x, y, direction)
-    if Rule.new.placed_inbound?(x, y)
-      @orient = [x,y,direction,'placed']
-    end
-    @orient
+    @orient = [x, y, direction, 'placed'] if Rule.new.placed_inbound?(x, y)
   end
 
   def move
     if robot_placed
       @orient[0...3] = Movement.new(@orient[0], @orient[1], @orient[2]).forward
     end
-    @orient
   end
 
   def turn_right
-    if robot_placed
-      @orient[2] = Direction.new(@orient[2]).rotate_90_deg_right
-    end
-    @orient
+    @orient[2] = Direction.new(@orient[2]).rotate_90_deg_right if robot_placed
   end
 
   def turn_left
-    if robot_placed
-      @orient[2] = Direction.new(@orient[2]).rotate_90_deg_left
-    end
-    @orient
+    @orient[2] = Direction.new(@orient[2]).rotate_90_deg_left if robot_placed
   end
 
   def report_status
     if robot_placed
-      puts "LOC: (#{@orient[0]},#{@orient[1]}), DIR: #{@orient[2].capitalize}."
+      "LOC: (#{@orient[0]},#{@orient[1]}), DIR: #{@orient[2].capitalize}."
     end
-    @orient
   end
 
   private
+
   def robot_placed
     Rule.new.robot_placed?(@orient[3])
   end
