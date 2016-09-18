@@ -1,27 +1,27 @@
-# spec/movement_spec.rb
-require_relative "../lib/movement"
+# spec/direction_spec.rb
+require "spec_helper"
 describe Movement do
-  context "Object output after execution" do
-
-    #movement.new gives you x y and direction array not nil
-
-    #obtain @max_xy not nil based on Board class
-
-    it "returns result of one step forward facing north" do
-      object =  Movement.new(1, 1, 'north').forward
-      default_output = [1, 2, 'north']
-      expect(object).to default_output
+  describe "#initialize" do
+    it "puts array in align" do
+      initialized_object = Movement.new(0, 0, 'north').align
+      align_array = [0, 0, 'north']
+      expect(initialized_object).to eql(align_array)
     end
+  end
 
-    it "returns result of one step forward facing east" do
-      object =  Movement.new(1, 1, 'east').forward
-      default_output = [2, 1, 'north']
-      expect(object).to default_output
+  describe "#forward" do
+    it "moves one unit up facing north" do
+      initialized_object = Movement.new(0, 0, 'north').forward
+      align_array_upwards = [0, 1, 'north']
+      expect(initialized_object).to eql(align_array_upwards)
+    end
+  end
+
+  describe "#forward" do
+    it "moves one unit down facing south" do
+      initialized_object = Movement.new(0, 1, 'south').forward
+      align_array_downwards = [0, 0, 'south']
+      expect(initialized_object).to eql(align_array_downwards)
     end
   end
 end
-
-
-# forward fed 1,1,north should return 1,2,north
-
-#forward fed 1,1,east returns 2,1,east

@@ -1,3 +1,4 @@
+# require 'pry'
 # lib/direction.rb
 class Direction
   COMPASS = %w(north east south west).freeze
@@ -7,12 +8,9 @@ class Direction
   end
 
   def rotate_90_deg(left_or_right)
-    if left_or_right == 'right'
-      @compass_index += 1
-    else
-      @compass_index -= 1
-    end
+    left_or_right == 'right' ? @compass_index += 1 : @compass_index -= 1
     actual_index(@compass_index)
+    # binding.pry
   end
 
   private
@@ -27,3 +25,5 @@ class Direction
     COMPASS[extended_index]
   end
 end
+# a = Direction.new('north')
+# binding.pry

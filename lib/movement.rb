@@ -1,11 +1,13 @@
+# require 'pry'
 require_relative 'direction'
 require_relative 'board'
 # lib/movement.rb
 class Movement
-  attr_accessor :location, :max_xy
+  attr_accessor :align, :max_xy
   def initialize(x, y, direction)
-    @align = [x, y, direction]
     @max_xy = Board.new.set_dimensions
+    @align = [x, y, direction]
+    # binding.pry
   end
 
   def forward(steps = 1)
@@ -18,3 +20,5 @@ class Movement
     @align
   end
 end
+# a = Movement.new(1,1,'north')
+# binding.pry
