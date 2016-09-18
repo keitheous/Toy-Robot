@@ -1,15 +1,16 @@
 # require 'pry'
 require_relative 'board'
+require_relative 'movement'
 # lib/rule.rb
 class Rule
   attr_accessor :game, :xy_range
   def initialize
     @game = true
-    @xy_range = Board.new.set_dimensions
+    @max_xy = Board.new.set_dimensions
   end
 
   def placed_inbound?(init_x, init_y)
-    if !init_x.between?(0, xy_range[0]) || !init_y.between?(0, xy_range[1])
+    if !init_x.between?(0, @max_xy[0]) || !init_y.between?(0, @max_xy[1])
       puts 'out of bound placement!'
       @game = false
     end
@@ -23,7 +24,4 @@ class Rule
     end
     @game
   end
-
 end
-
-#inform user of barier

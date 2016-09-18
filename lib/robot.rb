@@ -6,10 +6,11 @@ require 'pry'
 # require_relative 'report'
 # lib/robot.rb
 class Robot
-  attr_accessor :orient
+  attr_accessor :orient, :board_size
 
   def initialize
     @orient = [0, 0, nil, '!placed']
+    @board = Board.new.set_dimensions
   end
 
   def place(x, y, direction)
@@ -17,30 +18,28 @@ class Robot
   end
 
   def move
-    if robot_placed
+    if placed
       @orient[0...3] = Movement.new(@orient[0], @orient[1], @orient[2]).forward
     end
   end
 
   def turn_right
-    @orient[2] = Direction.new(@orient[2]).rotate_90_deg_right if robot_placed
+    @orient[2] = Direction.new(@orient[2]).rotate_90_deg('right') if placed
   end
 
   def turn_left
-    @orient[2] = Direction.new(@orient[2]).rotate_90_deg_left if robot_placed
+    @orient[2] = Direction.new(@orient[2]).rotate_90_deg('left') if placed
   end
 
   def report_status
-    if robot_placed
+    if placed
       "LOC: (#{@orient[0]},#{@orient[1]}), DIR: #{@orient[2].capitalize}."
     end
   end
 
   private
 
-  def robot_placed
-    Rule.new.robot_placed?(@orient[3])
+  def placed
+    Rule.new.placed?(@orient[3])
   end
 end
-a = Robot.new
-binding.pry

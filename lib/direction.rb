@@ -7,15 +7,19 @@ class Direction
     @compass_index = COMPASS.index(direction.downcase)
   end
 
-  def rotate_90_deg_right
-    @compass_index += 1
+  def rotate_90_deg(left_or_right)
+    if left_or_right == 'right'
+      @compass_index += 1
+    else
+      @compass_index -= 1
+    end
     actual_index(@compass_index)
   end
 
-  def rotate_90_deg_left
-    @compass_index -= 1
-    actual_index(@compass_index)
-  end
+  # def rotate_90_deg_left
+  #   @compass_index -= 1
+  #   actual_index(@compass_index)
+  # end
 
   private
 
