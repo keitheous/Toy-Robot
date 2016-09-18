@@ -1,4 +1,3 @@
-require 'pry'
 require_relative 'direction'
 require_relative 'board'
 # lib/movement.rb
@@ -11,17 +10,11 @@ class Movement
 
   def forward(steps = 1)
     case @align[2] # direction
-    when 'north' then @align[1] += steps if safe_move(@align[1])
-    when 'south' then @align[1] -= steps if safe_move(@align[1])
-    when 'east' then @align[0] += steps if safe_move(@align[0])
-    when 'west' then @align[0] -= steps if safe_move(@align[0])
+    when 'north' then @align[1] += steps if @align[1] < @max_xy[1] # y+
+    when 'south' then @align[1] -= steps if @align[1] > 0 # y-
+    when 'east' then @align[0] += steps if @align[0] < @max_xy[0] # x+
+    when 'west' then @align[0] -= steps if @align[0] > 0 # x-
     end
     @align
-  end
-
-  private
-
-  def safe_move(x_or_y_position)
-    true if (x_or_y_position < @max_xy[1]) && (x_or_y_position > 0)
   end
 end

@@ -2,8 +2,6 @@ require_relative 'direction'
 require_relative 'movement'
 require_relative 'board'
 require_relative 'rule'
-require 'pry'
-# require_relative 'report'
 # lib/robot.rb
 class Robot
   attr_accessor :orient, :board_size
@@ -40,6 +38,6 @@ class Robot
   private
 
   def placed
-    Rule.new.placed?(@orient[3])
+    Rule.new.robot_placed?(@orient[3])
   end
 end

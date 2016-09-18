@@ -1,10 +1,9 @@
-# require 'pry'
 # lib/direction.rb
 class Direction
   COMPASS = %w(north east south west).freeze
   attr_accessor :compass_index
   def initialize(direction)
-    @compass_index = COMPASS.index(direction.downcase)
+    @compass_index = COMPASS.index(direction)
   end
 
   def rotate_90_deg(left_or_right)
