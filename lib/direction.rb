@@ -16,11 +16,6 @@ class Direction
     actual_index(@compass_index)
   end
 
-  # def rotate_90_deg_left
-  #   @compass_index -= 1
-  #   actual_index(@compass_index)
-  # end
-
   private
 
   def actual_index(extended_index)
