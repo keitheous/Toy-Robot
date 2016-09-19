@@ -41,3 +41,6 @@ class Robot
     Rule.new.robot_placed?(@orient[3])
   end
 end
+# 
+# a = Robot.new
+# binding.pry

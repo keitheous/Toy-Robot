@@ -1,5 +1,5 @@
+require 'robot'
+require 'rule'
 require 'board'
 require 'direction'
 require 'movement'
-require 'robot'
-require 'rule'
