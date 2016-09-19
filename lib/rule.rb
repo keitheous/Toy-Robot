@@ -1,4 +1,3 @@
-# require 'pry'
 require_relative 'board'
 require_relative 'movement'
 # lib/rule.rb

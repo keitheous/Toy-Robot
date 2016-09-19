@@ -1,4 +1,3 @@
-# require 'pry'
 require_relative 'direction'
 require_relative 'board'
 # lib/movement.rb
@@ -7,7 +6,6 @@ class Movement
   def initialize(x, y, direction)
     @max_xy = Board.new.set_dimensions
     @align = [x, y, direction]
-    # binding.pry
   end
 
   def forward(steps = 1)
@@ -20,5 +18,3 @@ class Movement
     @align
   end
 end
-# a = Movement.new(1,1,'north')
-# binding.pry

@@ -30,9 +30,7 @@ class Robot
   end
 
   def report_status
-    if placed
-      "LOC: (#{@orient[0]},#{@orient[1]}), DIR: #{@orient[2].capitalize}."
-    end
+    puts "#{@orient[0]},#{@orient[1]},#{@orient[2].upcase}." if placed
   end
 
   private
@@ -41,6 +39,6 @@ class Robot
     Rule.new.robot_placed?(@orient[3])
   end
 end
-# 
+#
 # a = Robot.new
 # binding.pry
