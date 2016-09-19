@@ -1,17 +1,24 @@
 # ReadMe
 
-## Scalability
-To start off, I asked for tips and advice from some seniors and people with much more coding experience than I do. They all suggested the same thing, "Build it in such a way that it's scaleable", meaning that - when improvements or other implementations are required, you only need to change one small part of the code without really affecting the entire system. Hence, I am to build a system that expects change and will still function accordingly when the limitations are extended.
+## Installation
+
+## Usage
+
+## Testing
+
+## Scalability & Isolation OOD
+To start off, I asked for tips and advice from some seniors and people with much more coding experience than I do. They all suggested the same thing, "Build it in such a way that it's scaleable".
 
 According to google:
 Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential to be enlarged in order to accommodate that growth.
 
-For example, although the challenge only require a 5 x 5 arena, the system should still work in the future when I am required to change it to a 10 x 10 arena. Similarly, the current required directions (face) are NORTH, EAST, SOUTH and WEST. And in the future, if required so, we can change the system to face 8 directions instead, (i.e. N, NE, E, SE, S, SW, W and NW).
+They suggested isolation of components so that when improvements or other implementations are required, you only need to change one small part of the code without changing the entire system. Hence, I am to build a system that expects change and will still function accordingly when the limitations are extended.
 
-In addition to that, I intend to break it down into several parts, forming an entire whole system in the end with a bin/main.rb. That way, when I'm required to make amendments, I just need to change one component (i.e one of the classes in lib folder) without affecting the rest. Components may include report.rb, board.rb, rule.rb, movement.rb, and etc.
+For example, although the challenge only requires a 5 x 5 arena, the system should still work in the future when I am required to change it to a 10 x 10 arena. Similarly, the current required directions (face) are NORTH, EAST, SOUTH and WEST. And in the future, if required so, we can change the system to face 8 directions instead, (i.e. N, NE, E, SE, S, SW, W and NW).
 
-## Approach
+## Classes
 located in the /lib folder,
+
 ### 1. Board
 **Description:** Setting the arena / playing field
 
@@ -138,3 +145,49 @@ ELSE IF index is smaller than the lowest recognized actual index ( index < -4),
 This will now work for both
 - directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], AND
 - directions = ["NORTH", "EAST", "SOUTH", "WEST"]
+
+## Specifications
+**Description:**
+
+The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units. There are no other obstructions on the table surface. The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
+
+Create an application that can read in commands of the following form
+
+* PLACE X,Y,F
+* MOVE
+* LEFT
+* RIGHT
+* REPORT
+
+PLACE will put the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST. The origin (0,0) can be considered to be the SOUTH WEST most corner. The first valid command to the robot is a PLACE command, after that, any sequence of commands may be issued, in any order, including another PLACE command. The application should discard all commands in the sequence until a valid PLACE command has been executed. MOVE will move the toy robot one unit forward in the direction it is currently facing. LEFT and RIGHT will rotate the robot 90 degrees in the specified direction without changing the position of the robot. REPORT will announce the X,Y and orientation of the robot. A robot that is not on the table can choose to ignore the MOVE, LEFT, RIGHT and REPORT commands. Provide test data to exercise the application.
+
+**Constraints:**
+
+The toy robot must not fall off the table during movement. This also includes the initial placement of the toy robot. Any move that would cause the robot to fall must be ignored.
+
+Example Input and Output:
+
+a)
+- PLACE 0,0,NORTH
+- MOVE
+- REPORT
+- Output: 0,1,NORTH
+
+b)
+- PLACE 0,0,NORTH
+- LEFT
+- REPORT
+- Output: 0,0,WEST
+
+c)
+- PLACE 1,2,EAST
+- MOVE
+- MOVE
+- LEFT
+- MOVE
+- REPORT
+- Output: 3,3,NORTH
+
+**Deliverables:**
+
+The source files, the test data and any test code.
