@@ -1,15 +1,13 @@
-require_relative 'board'
 require_relative 'movement'
 # lib/rule.rb
 class Rule
-  attr_accessor :game, :xy_range
+  attr_accessor :game
   def initialize
     @game = true
-    @xy_range = Board.new.set_dimensions
   end
 
-  def placed_inbound?(init_x, init_y)
-    if !init_x.between?(0, xy_range[0]) || !init_y.between?(0, xy_range[1])
+  def placed_inbound?(robot_x, robot_y, max_x, max_y)
+    if !robot_x.between?(0, max_x) || !robot_y.between?(0, max_y)
       puts 'error! out of bound placement!'
       @game = false
     end

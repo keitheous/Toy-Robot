@@ -4,20 +4,21 @@ require_relative 'board'
 require_relative 'rule'
 # lib/robot.rb
 class Robot
-  attr_accessor :orient, :board_size
+  attr_accessor :orient, :max_xy
 
   def initialize
     @orient = [0, 0, nil, '!placed']
-    @board = Board.new.set_dimensions
+    @max_xy = Board.new.set_dimensions # x y
   end
 
   def place(x, y, direction)
-    @orient = [x, y, direction, 'placed'] if Rule.new.placed_inbound?(x, y)
+    @orient = [x, y, direction, 'placed'] if placed_within_bound?(x, y)
   end
 
   def move
     if placed
-      @orient[0...3] = Movement.new(@orient[0], @orient[1], @orient[2]).forward
+      @orient[0...2] =
+        Movement.new(@orient[0], @orient[1], @max_xy[0], @max_xy[1], @orient[2]).move_forward
     end
   end
 
@@ -35,10 +36,11 @@ class Robot
 
   private
 
-  def placed
+  def placed # placed on the board
     Rule.new.robot_placed?(@orient[3])
   end
+
+  def placed_within_bound?(robot_x, robot_y) # placement is WITHIN bound
+    Rule.new.placed_inbound?(robot_x, robot_y, max_xy[0], max_xy[1])
+  end
 end
-#
-# a = Robot.new
-# binding.pry
