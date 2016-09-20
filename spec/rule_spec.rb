@@ -16,7 +16,7 @@ describe Rule do
     end
 
     it "place out of bound returned false" do
-      placed_state = @rule.placed_inbound?(1, 7)
+      placed_state = @rule.placed_inbound?(1, 7, 5, 5)
       expect(placed_state).to eql(false)
     end
   end

@@ -18,16 +18,17 @@ describe Robot do
   end
   describe "#move" do
     it "increments one unit in north" do
+      # [1,1,'N'] expects [1,2]
     end
   end
   describe "#turn_right" do
     it "changes north to east" do
-      # turn left right gives you east
+      # 'NORTH' expects 'EAST'
     end
   end
   describe "#turn_left" do
     it "changes north to west" do
-      # turn left gives you a west
+      # 'NORTH' expects 'WEST'
     end
   end
   describe "#report_status" do
