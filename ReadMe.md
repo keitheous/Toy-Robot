@@ -82,9 +82,7 @@ To start off, I asked for tips and advice from some seniors and people with much
 They suggested isolation of components so that when improvements or other implementations are required, you only need to change one small part of the code without changing the entire system. Hence, I am to build a system that expects change and will still function accordingly when the limitations are extended.
 
 According to google:
-```
-Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential to be enlarged in order to accommodate that growth.
-```
+> Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential to be enlarged in order to accommodate that growth.
 
 For example, although the challenge only requires a 5 x 5 arena, the system should still work in the future when I am required to change it to a 10 x 10 arena. Similarly, the current required directions (face) are NORTH, EAST, SOUTH and WEST. And in the future, if required so, we can change the system to face 8 directions instead, (i.e. N, NE, E, SE, S, SW, W and NW).
 
