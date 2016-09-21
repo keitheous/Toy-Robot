@@ -79,10 +79,12 @@ The source files, the test data and any test code.
 ## Scalability & Isolation OOD
 To start off, I asked for tips and advice from some seniors and people with much more coding experience than I do. They all suggested the same thing, "Build it in such a way that it's scaleable".
 
-According to google:
-Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential to be enlarged in order to accommodate that growth.
-
 They suggested isolation of components so that when improvements or other implementations are required, you only need to change one small part of the code without changing the entire system. Hence, I am to build a system that expects change and will still function accordingly when the limitations are extended.
+
+According to google:
+```
+Scalability is the capability of a system, network, or process to handle a growing amount of work, or its potential to be enlarged in order to accommodate that growth.
+```
 
 For example, although the challenge only requires a 5 x 5 arena, the system should still work in the future when I am required to change it to a 10 x 10 arena. Similarly, the current required directions (face) are NORTH, EAST, SOUTH and WEST. And in the future, if required so, we can change the system to face 8 directions instead, (i.e. N, NE, E, SE, S, SW, W and NW).
 
@@ -176,7 +178,7 @@ There are 2 possible actions for 4 different directions (8 conditional statement
 Directions = ["NORTH","EAST","SOUTH","WEST"]
 ```
 
-Turning right or left 4 times takes you into the unknown territory an array. For instance, Directions[-2] => "SOUTH" and Directions[-4] => "NORTH". However, Directions[-5] and Directions[4] on wards give you => nil. These unrecognized extended indices can still represent any of the current 4 elements in the array(actual index).
+Turning right or left 4 times takes you into the unknown territory an array. For instance, Directions[-2] => "SOUTH" and Directions[-4] => "NORTH". However, Directions[-5] and Directions[4] onwards returns => nil. These unrecognized extended indices can still represent any of the current 4 elements in the array(actual index).
 
 |Array Elements| "NORTH" | "EAST" | "SOUTH"| "WEST" |
 |---|---|---|---|---|
@@ -189,6 +191,7 @@ Turning right or left 4 times takes you into the unknown territory an array. For
 |Unrecognized Extended Index(UEX)| 12 | 13 | 14| 15 |
 
 I have written down a formula to achieve this.
+
 (pseudocode)
 
 IF index is bigger than the highest recognized actual index ( index > 3),
