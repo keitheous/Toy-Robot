@@ -150,8 +150,9 @@ located in the /lib folder,
 
 On being practical, instead of building a LARGE if else statement containing what to do when what instructions given. Ive decided that a link list would be appropriate.
 The directions are declared in an array and a code that links one end to the other, resulting in an endless loop forward and back, was written.
-
+```
 Directions = ["NORTH","EAST","SOUTH","WEST"]
+```
 
 When the robot is required to TURN right, all I need to do is increment an index count. Alternately, turning left decrements the index count. That way, the incrementing and decrementing of index allows us to move from one element to another in the Directions array. With the link, incrementing from WEST (array index position 4) should result in NORTH.
 
