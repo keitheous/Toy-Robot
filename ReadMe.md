@@ -3,13 +3,17 @@
 ## Usage
 
 From the root directory, type "ruby bin/toy_robot.rb" in the command line.
+
 ![Main Menu](./images/TR_menu.png)
 
 If a move, turn or report command is detect prior to a place command, an error output will show up.
+
 ![Error Msgs](./images/TR_errors.png)
 
 Start by placing the robot with the exact syntax. Then a move, turn,report or another place command can follow after.
+
 ![Step 1](./images/TR_step_1.png)
+
 ![Step 2](./images/TR_step_2.png)
 
 ## Specifications
