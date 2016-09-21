@@ -3,11 +3,19 @@
 ## Usage
 
 From the root directory, type "ruby bin/toy_robot.rb" in the command line.
+![Main Menu](./images/TR_menu.png)
+
+If a move, turn or report command is detect prior to a place command, an error output will show up.
+![Error Msgs](./images/TR_errors.png)
+
+Start by placing the robot with the exact syntax. Then a move, turn,report or another place command can follow after.
+![Step 1](./images/TR_step_1.png)
+![Step 2](./images/TR_step_2.png)
 
 ## Specifications
 **Description:**
 
-The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units. There are no other obstructions on the table surface. The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
+The application is a simulation of a toy robot moving on a square table top, of dimensions 5 units x 5 units. There are no other obstructions on the table surface. The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
 
 Create an application that can read in commands of the following form
 
@@ -63,6 +71,8 @@ For example, although the challenge only requires a 5 x 5 arena, the system shou
 
 ## Classes
 located in the /lib folder,
+
+![Class relationships/dependency](./images/classes.png)
 
 ### 1. Board
 **Description:** Setting the arena / playing field
