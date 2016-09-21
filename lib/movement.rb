@@ -12,7 +12,7 @@ class Movement
     when 'south' then @positions[1] -= steps if @positions[1] > 0
     when 'east' then @positions[0] += steps if @positions[0] < @positions[2]
     when 'west' then @positions[0] -= steps if @positions[0] > 0
-    end # switch y+ y- x+ x-
-    @positions[0...2]
+    end # switch statement y+ y- x+ x- based on max_y and max_x
+    @positions[0...2] # return only x,y
   end
 end
