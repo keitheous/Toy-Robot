@@ -155,22 +155,25 @@ Directions = ["NORTH","EAST","SOUTH","WEST"]
 
 When the robot is required to TURN right, all I need to do is increment an index count. Alternately, turning left decrements the index count. That way, the incrementing and decrementing of index allows us to move from one element to another in the Directions array. With the link, incrementing from WEST (array index position 4) should result in NORTH.
 
-Considering the code below,
+Considering the pseudocode below,
+```
+check for current position (N,E,S,or WEST)
+  if command = RIGHT and current position == N,
+  rotate right and current position = E
+  if command = LEFT and current position == N,
+  rotate left and current position = W
+  ...
+  ..
+  .
+```
 
-- check for current position (N,E,S,or WEST)
-  * if command = RIGHT and current position == N,
-  * rotate right and current position = E
-  * if command = LEFT and current position == N,
-  * rotate left and current position = W
-  * ...
-  * ..
-  * .
 
 There are 2 possible actions for 4 different directions (8 conditional statements). What happens in the future when we're required to have 8 directions instead of 4. What will we do next? Create all 16 conditional statements? The code will no longer be practical or D.R.Y.
 
 **Personal Approach**
-
+```
 Directions = ["NORTH","EAST","SOUTH","WEST"]
+```
 
 Turning right or left 4 times takes you into the unknown territory an array. For instance, Directions[-2] => "SOUTH" and Directions[-4] => "NORTH". However, Directions[-5] and Directions[4] on wards give you => nil. These unrecognized extended indices can still represent any of the current 4 elements in the array(actual index).
 
@@ -185,35 +188,43 @@ Turning right or left 4 times takes you into the unknown territory an array. For
 |Unrecognized Extended Index(UEX)| 12 | 13 | 14| 15 |
 
 I have written down a formula to achieve this.
+(pseudocode)
 
 IF index is bigger than the highest recognized actual index ( index > 3),
-
-- if index > directions.length - 1
-  * answer = index / directions.length
-  * extended_key = answer * directions.length
-  * actual_key = index - extended_key
-  * index = actual_key
-
+```
+if index > directions.length - 1
+  answer = index / directions.length
+  extended_key = answer * directions.length
+  actual_key = index - extended_key
+  index = actual_key
+```
 ELSE IF index is smaller than the lowest recognized actual index ( index < -4),
 
-- elsif index < -(directions.length)
-  * answer = index.abs / directions.length
-  * extended_key = answer * directions.length
-  * actual_key = index + extended_key
-  * index = actual_key
+```
+elsif index < -(directions.length)
+  answer = index.abs / directions.length
+  extended_key = answer * directions.length
+  actual_key = index + extended_key
+  index = actual_key
+```
 
 **REFACTORED!**
 
-- numbers_in_between = (index.abs / directions.length) * directions.length
+```
+numbers_in_between = (index.abs / directions.length) * directions.length
 
-- if index > directions.length - 1
-  * index -= numbers_in_between
-- elsif index < -(directions.length)
-  * index += numbers_in_between
-- end
+if index > directions.length - 1
+  index -= numbers_in_between
+elsif index < -(directions.length)
+  index += numbers_in_between
+end
 
-- directions[index]
+directions[index]
+```
+
 
 This will now work for both
-- directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"], AND
-- directions = ["NORTH", "EAST", "SOUTH", "WEST"]
+```
+directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
+directions = ["NORTH", "EAST", "SOUTH", "WEST"]
+```
