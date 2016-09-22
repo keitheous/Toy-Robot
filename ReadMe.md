@@ -2,7 +2,7 @@
 
 ## Usage
 
-From the root directory, type following in the command line.
+From the root directory, type the following in the command line.
 ```
 $ ruby bin/toy_robot.rb
 ```
