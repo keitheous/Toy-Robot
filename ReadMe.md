@@ -12,7 +12,7 @@ If a move, turn or report command is detect prior to a place command, an error o
 
 ![Error Msgs](./images/TR_errors.png)
 
-Start by placing the robot with the exact syntax. Then a move, turn,report or another place command can follow after.
+Start by placing the robot "PLACE". Then a MOVE, LEFT, RIGHT, REPORT or another PLACE command can follow.
 
 ![Step 1](./images/TR_step_1.png)
 
@@ -87,10 +87,10 @@ According to google:
 For example, although the challenge only requires a 5 x 5 arena, the system should still work in the future when I am required to change it to a 10 x 10 arena. Similarly, the current required directions (face) are NORTH, EAST, SOUTH and WEST. And in the future, if required so, we can change the system to face 8 directions instead, (i.e. N, NE, E, SE, S, SW, W and NW).
 
 ## Classes
-located in the /lib folder,
 
 ![Class relationships/dependency](./images/classes.png)
 
+located in the /lib folder,
 ### 1. Board
 **Description:** Setting the arena / playing field
 
@@ -103,9 +103,9 @@ located in the /lib folder,
 
 **Functions:**
 * initialize - to obtain current direction
-* rotate_90_degrees_left - --compass_index of Compass Array
-* rotate_90_degrees_right - ++compass_index of Compass Array
-* Private function to recognize extended indices (scroll down for explanation)
+* rotate_90_degrees_left --compass_index of Compass Array
+* rotate_90_degrees_right ++compass_index of Compass Array
+* Private function to recognize extended indices (please scroll down for further explanation)
 
 **Possible Future Plans/ Scalability:**
 * turns other than 90 degrees,
@@ -131,7 +131,7 @@ located in the /lib folder,
   * check_initial_command - must be place command
 
 - **Possible Future Plans/ Scalability:**
-  * Constrains/Specifications change its inevitable
+  * Break Rules
   * 2 robots cannot not be on the same spot at once
 
 ### 5. Robot
@@ -144,11 +144,11 @@ located in the /lib folder,
   * report
 
 - **Possible Future Plans/ Scalability:**
-  * Multiple robots - different names - initialize(name=default)
+  * Multiple robots - different names - initialize(name="fassbender")
 
 ### Private Function in Direction
 
-On being practical, instead of building a LARGE if else statement containing what to do when what instructions given. Ive decided that a link list would be appropriate.
+On being practical, instead of building a LARGE if else statement containing what to do when what instructions are given, I have decided that a link list would be appropriate.
 The directions are declared in an array and a code that links one end to the other, resulting in an endless loop forward and back, was written.
 ```
 Directions = ["NORTH","EAST","SOUTH","WEST"]
@@ -176,7 +176,7 @@ There are 2 possible actions for 4 different directions (8 conditional statement
 Directions = ["NORTH","EAST","SOUTH","WEST"]
 ```
 
-Turning right or left 4 times takes you into the unknown territory an array. For instance, Directions[-2] => "SOUTH" and Directions[-4] => "NORTH". However, Directions[-5] and Directions[4] onwards returns => nil. These unrecognized extended indices can still represent any of the current 4 elements in the array(actual index).
+Turning right or left 4 times takes you into the unknown territory an array. For instance, Directions[-2] => "SOUTH" and Directions[-4] => "NORTH". However, Directions[-5] and Directions[4] onwards returns => nil. These unrecognized extended indices should still represent any of the current 4 elements in the array(actual index).
 
 |Array Elements| "NORTH" | "EAST" | "SOUTH"| "WEST" |
 |---|---|---|---|---|
@@ -194,36 +194,35 @@ I have written down a formula to achieve this.
 
 IF index is bigger than the highest recognized actual index ( index > 3),
 ```
-if index > directions.length - 1
-  answer = index / directions.length
-  extended_key = answer * directions.length
-  actual_key = index - extended_key
+if selected_index > directions.length - 1
+  rows_apart = selected_index / directions.length
+  extended_key = rows_apart * directions.length
+  actual_key = selected_index - extended_key
   index = actual_key
 ```
 ELSE IF index is smaller than the lowest recognized actual index ( index < -4),
 
 ```
-elsif index < -(directions.length)
-  answer = index.abs / directions.length
-  extended_key = answer * directions.length
-  actual_key = index + extended_key
+elsif selected_index < -(directions.length)
+  rows_apart = selected_index.abs / directions.length
+  extended_key = rows_apart * directions.length
+  actual_key = selected_index + extended_key
   index = actual_key
 ```
 
 **REFACTORED!**
 
 ```
-numbers_in_between = (index.abs / directions.length) * directions.length
+all_numbers_in_between = (index.abs / directions.length) * directions.length
 
 if index > directions.length - 1
-  index -= numbers_in_between
+  index -= all_numbers_in_between
 elsif index < -(directions.length)
-  index += numbers_in_between
+  index += all_numbers_in_between
 end
 
 directions[index]
 ```
-
 
 This will now work for both
 ```
