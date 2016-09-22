@@ -1,21 +1,25 @@
 # spec/board_spec.rb
 require "spec_helper"
 describe Rule do
-  describe "#initialize" do
-    before(:each) do
-      @rule = Rule.new
-    end
+  before(:each) do
+    @rule = Rule.new
+  end
 
-    it "game rule to be true" do
+  describe "#initialize" do
+    it "returns game state true" do
       expect(@rule.game).to eql(true)
     end
+  end
 
-    it "not placed to returned false" do
+  describe "#robot_placed?" do
+    it "returns false when robot is NOT placed" do
       placed_state = @rule.robot_placed?('!placed')
       expect(placed_state).to eql(false)
     end
+  end
 
-    it "place out of bound returned false" do
+  describe "#placed_inbound?" do
+    it "returns false when robot is placed out of bound" do
       placed_state = @rule.placed_inbound?(1, 7, 5, 5)
       expect(placed_state).to eql(false)
     end
