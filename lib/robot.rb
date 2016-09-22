@@ -19,6 +19,7 @@ class Robot
     if placed
       @orient[0...2] =
         Movement.new(@orient[0], @orient[1], @max_xy[0], @max_xy[1], @orient[2]).move_forward
+      # passing [rbt_x, rbt_y, max_x, max_y, rbt_direction]
     end
   end
 
@@ -36,7 +37,7 @@ class Robot
 
   private
 
-  def placed # placed on the board
+  def placed # placed on the board?
     Rule.new.robot_placed?(@orient[3])
   end
 

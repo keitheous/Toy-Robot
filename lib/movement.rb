@@ -7,12 +7,12 @@ class Movement
   end
 
   def move_forward(steps = 1)
-    case @positions[4] # direction
+    case @positions[4] # rbt_direction
     when 'north' then @positions[1] += steps if @positions[1] < @positions[3]
     when 'south' then @positions[1] -= steps if @positions[1] > 0
     when 'east' then @positions[0] += steps if @positions[0] < @positions[2]
     when 'west' then @positions[0] -= steps if @positions[0] > 0
-    end # switch statement y+ y- x+ x- based on max_y and max_x
-    @positions[0...2] # return only x,y
+    end # switch statement rbt y+ y- x+ x- based on max_y and max_x
+    @positions[0...2] # return only x,y coordinate
   end
 end
