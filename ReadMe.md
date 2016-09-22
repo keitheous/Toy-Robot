@@ -230,3 +230,4 @@ This will now work for both
 directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"],
 directions = ["NORTH", "EAST", "SOUTH", "WEST"]
 ```
+![thought process for endless loop](./images/endless_love.png)
