@@ -16,10 +16,11 @@ describe Robot do
 
   describe "#move" do
     it "increments one unit in north" do
-      # placing_robot = Robot.new.place(1,1,'north')
-      # moving_robot = placing_robot.move
-      # expect(moving_robot).to eql([1, 1])
-      # hmm not working.. when fed 1,1, North, should return 1, 2
+      orient_arr = [1,1,'north']
+      move_method = Movement.new(orient_arr[0], orient_arr[1], 4, 4, orient_arr[2]).move_forward
+      expect(move_method).to eql([1,2])
+      # issues with use of local variable VS arg of method
+      # testing the logic around the method instead
     end
   end
 
