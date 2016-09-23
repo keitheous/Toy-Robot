@@ -19,6 +19,7 @@ describe Robot do
       orient_arr = [1,1,'north']
       move_method = Movement.new(orient_arr[0], orient_arr[1], 4, 4, orient_arr[2]).move_forward
       expect(move_method).to eql([1,2])
+      # orient_arr = [1,1,'north'] should return [1,2] after move
       # issues with use of local variable VS arg of method
       # testing the logic around the method instead
     end
