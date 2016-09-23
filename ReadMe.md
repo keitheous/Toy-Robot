@@ -19,7 +19,7 @@ Start by placing the robot "PLACE". Then a MOVE, LEFT, RIGHT, REPORT or another 
 ![Step 2](./images/TR_step_2.png)
 
 ## Testing
-RSpec is implemented for testing code quality. To run tests, run the below command.
+RSpec is implemented for testing code quality. To run tests, run the command below.
 
 ```
 $ rspec
